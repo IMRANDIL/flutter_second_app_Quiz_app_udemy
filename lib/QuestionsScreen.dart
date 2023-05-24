@@ -14,12 +14,22 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
 
   void changeQuestion() {
     setState(() {
-      currentIndex++;
+      currentIndex = (currentIndex + 1) % questions.length;
     });
   }
 
   @override
   Widget build(BuildContext context) {
+    List<Widget> answerButtons = [];
+    if (currentIndex < questions.length) {
+      answerButtons = questions[currentIndex].answers.map((answer) {
+        return Container(
+          margin: const EdgeInsets.symmetric(horizontal: 30, vertical: 5),
+          child: AnswerButton(answerText: answer, onTap: changeQuestion),
+        );
+      }).toList();
+    }
+
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -45,12 +55,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
           const SizedBox(
             height: 20,
           ),
-          ...questions[currentIndex].answers.map((answer) {
-            return Container(
-              margin: const EdgeInsets.symmetric(horizontal: 30, vertical: 5),
-              child: AnswerButton(answerText: answer, onTap: changeQuestion),
-            );
-          }),
+          ...answerButtons,
         ],
       ),
     );
