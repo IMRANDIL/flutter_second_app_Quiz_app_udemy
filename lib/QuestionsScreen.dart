@@ -10,6 +10,14 @@ class QuestionsScreen extends StatefulWidget {
 }
 
 class _QuestionsScreenState extends State<QuestionsScreen> {
+  var currentIndex = 0;
+
+  void changeQuestion() {
+    setState(() {
+      currentIndex++;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -23,12 +31,13 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
               vertical: 0,
             ),
             child: Text(
-              questions[0].question,
+              questions[currentIndex].question,
               textAlign: TextAlign.center,
               style: const TextStyle(
                 color: Colors.white,
                 fontSize: 20,
                 letterSpacing: 2,
+                fontWeight: FontWeight.w500,
                 height: 1.5,
               ),
             ),
@@ -36,10 +45,10 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
           const SizedBox(
             height: 20,
           ),
-          ...questions[0].answers.map((answer) {
+          ...questions[currentIndex].answers.map((answer) {
             return Container(
               margin: const EdgeInsets.symmetric(horizontal: 30, vertical: 3),
-              child: AnswerButton(answerText: answer, onTap: () {}),
+              child: AnswerButton(answerText: answer, onTap: changeQuestion),
             );
           }),
         ],

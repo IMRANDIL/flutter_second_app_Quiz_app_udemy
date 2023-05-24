@@ -26,7 +26,9 @@ class AnswerButton extends StatelessWidget {
         answerText,
         style: const TextStyle(
           fontSize: 20,
+          fontWeight: FontWeight.w500,
         ),
+        textAlign: TextAlign.center,
       ),
     );
   }
