@@ -17,12 +17,20 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Text(
-            questions[0].question,
-            textAlign: TextAlign.center,
-            style: const TextStyle(
-              color: Colors.white,
-              fontSize: 20,
+          Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 8,
+              vertical: 0,
+            ),
+            child: Text(
+              questions[0].question,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                color: Colors.white,
+                fontSize: 20,
+                letterSpacing: 2,
+                height: 1.5,
+              ),
             ),
           ),
           const SizedBox(
@@ -31,7 +39,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
           ...questions[0].answers.map((answer) {
             return Container(
               margin: const EdgeInsets.symmetric(horizontal: 30, vertical: 3),
-              child: AnswerButton(answer, () {}),
+              child: AnswerButton(answerText: answer, onTap: () {}),
             );
           }),
         ],
