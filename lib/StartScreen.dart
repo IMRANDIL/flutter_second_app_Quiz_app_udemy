@@ -36,7 +36,7 @@ class StartScreen extends StatelessWidget {
                   width: 10,
                 ),
                 Text(
-                  'Start',
+                  'Start Quiz',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 18,
