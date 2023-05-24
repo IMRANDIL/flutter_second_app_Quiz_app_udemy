@@ -47,7 +47,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
           ),
           ...questions[currentIndex].answers.map((answer) {
             return Container(
-              margin: const EdgeInsets.symmetric(horizontal: 30, vertical: 3),
+              margin: const EdgeInsets.symmetric(horizontal: 30, vertical: 5),
               child: AnswerButton(answerText: answer, onTap: changeQuestion),
             );
           }),
