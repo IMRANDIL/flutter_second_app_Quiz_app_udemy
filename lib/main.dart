@@ -11,7 +11,7 @@ void main() {
             builder: (context, constraints) {
               return Image.asset(
                 'assets/flutter.gif',
-                width: constraints.maxWidth * 0.5, // Adjust the width as needed
+                width: constraints.maxWidth * 0.4, // Adjust the width as needed
               );
             },
           ),
