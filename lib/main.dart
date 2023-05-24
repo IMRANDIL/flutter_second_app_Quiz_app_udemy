@@ -36,7 +36,7 @@ void main() {
                     fontSize: 18,
                   ),
                 ),
-                const SizedBox(height: 30),
+                const SizedBox(height: 20),
                 TextButton(
                   onPressed: () {},
                   child: Row(
