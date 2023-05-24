@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_second_app/answer_button.dart';
 import 'package:flutter_second_app/data/questions.dart';
+import 'package:flutter_second_app/models/quiz_question.dart';
 
 class QuestionsScreen extends StatefulWidget {
   const QuestionsScreen({super.key});
@@ -22,7 +23,10 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
   Widget build(BuildContext context) {
     List<Widget> answerButtons = [];
     if (currentIndex < questions.length) {
-      answerButtons = questions[currentIndex].answers.map((answer) {
+      answerButtons = QuizQuestion(
+              questions[currentIndex].question, questions[currentIndex].answers)
+          .getShuffledList()
+          .map((answer) {
         return Container(
           margin: const EdgeInsets.symmetric(horizontal: 30, vertical: 5),
           child: AnswerButton(answerText: answer, onTap: changeQuestion),
