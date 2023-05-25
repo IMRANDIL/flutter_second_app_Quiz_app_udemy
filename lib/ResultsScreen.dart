@@ -3,8 +3,9 @@ import 'package:flutter_second_app/data/questions.dart';
 import 'package:flutter_second_app/questions_summary.dart';
 
 class ResultsScreen extends StatelessWidget {
-  const ResultsScreen({super.key, required this.choosenAnswers});
-
+  const ResultsScreen(
+      {super.key, required this.restart, required this.choosenAnswers});
+  final void Function() restart;
   final List<String> choosenAnswers;
 
   List<Map<String, Object>> getSummaryList() {
@@ -52,7 +53,7 @@ class ResultsScreen extends StatelessWidget {
             const SizedBox(
               height: 30,
             ),
-            TextButton(onPressed: () {}, child: const Text('Restart Quiz'))
+            TextButton(onPressed: restart, child: const Text('Restart Quiz'))
           ],
         ),
       ),
