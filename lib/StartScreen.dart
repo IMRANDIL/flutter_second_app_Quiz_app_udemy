@@ -34,10 +34,10 @@ class StartScreen extends StatelessWidget {
             onPressed: switchScreen,
             style: OutlinedButton.styleFrom(
               padding: const EdgeInsets.symmetric(
-                vertical: 12,
+                vertical: 15,
                 horizontal: 15,
               ),
-              backgroundColor: const Color.fromARGB(57, 68, 57, 86),
+              backgroundColor: const Color.fromARGB(255, 62, 53, 77),
             ),
             child: Row(
               mainAxisSize: MainAxisSize.min,
