@@ -1,9 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_second_app/data/questions.dart';
 
 class ResultsScreen extends StatelessWidget {
   const ResultsScreen({super.key, required this.choosenAnswers});
 
   final List<String> choosenAnswers;
+
+  List<Map<String, Object>> getSummaryList() {
+    List<Map<String, Object>> summary = [];
+
+    for (var i = 0; i < choosenAnswers.length; i++) {
+      summary.add(
+        {
+          'question_index': i,
+          'current_question': questions[i].question,
+          'current_answer': questions[i].answers[0],
+        },
+      );
+    }
+
+    return summary;
+  }
 
   @override
   Widget build(BuildContext context) {
