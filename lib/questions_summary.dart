@@ -16,7 +16,6 @@ class QuestionsSummary extends StatelessWidget {
 
     return SizedBox(
       height: containerHeight,
-      // color: Colors.green,
       width: containerWidth,
       child: SingleChildScrollView(
         child: Column(
@@ -30,18 +29,25 @@ class QuestionsSummary extends StatelessWidget {
                   borderRadius: BorderRadius.all(
                     Radius.circular(4),
                   ),
-                  color: Colors.red,
+                  color: Colors.white,
                 ),
                 width: rowWidth,
-                height: containerWidth * 0.3,
+                height: containerHeight * 0.3,
                 padding: EdgeInsets.all(rowWidth * 0.03),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
-                      ((data['question_index'] as int) + 1).toString(),
-                      textAlign: TextAlign.center,
+                    Container(
+                      padding: const EdgeInsets.all(10),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(25),
+                        color: Colors.pink,
+                      ),
+                      child: Text(
+                        ((data['question_index'] as int) + 1).toString(),
+                        textAlign: TextAlign.center,
+                      ),
                     ),
                     const SizedBox(
                       width: 40,
