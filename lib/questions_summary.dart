@@ -33,7 +33,7 @@ class QuestionsSummary extends StatelessWidget {
                 ),
                 width: rowWidth,
                 height: containerHeight * 0.3,
-                padding: EdgeInsets.all(rowWidth * 0.03),
+                padding: EdgeInsets.all(rowWidth * 0.02),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -41,29 +41,35 @@ class QuestionsSummary extends StatelessWidget {
                     Container(
                       padding: const EdgeInsets.all(10),
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(25),
-                        color: Colors.pink,
+                        borderRadius: BorderRadius.circular(20),
+                        color: Colors.black,
                       ),
                       child: Text(
                         ((data['question_index'] as int) + 1).toString(),
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 15,
+                        ),
                         textAlign: TextAlign.center,
                       ),
                     ),
-                    const SizedBox(
-                      width: 40,
-                    ),
                     Expanded(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Text(data['current_question'] as String),
-                          const SizedBox(
-                            height: 5,
-                          ),
-                          Text(data['user_answer'] as String),
-                          Text(data['current_answer'] as String),
-                        ],
+                      child: Container(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: rowWidth * 0.06,
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Text(data['current_question'] as String),
+                            const SizedBox(
+                              height: 5,
+                            ),
+                            Text(data['user_answer'] as String),
+                            Text(data['current_answer'] as String),
+                          ],
+                        ),
                       ),
                     )
                   ],
