@@ -5,8 +5,9 @@ import 'package:flutter_second_app/models/quiz_question.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class QuestionsScreen extends StatefulWidget {
-  const QuestionsScreen({super.key, required this.onChoose});
+  const QuestionsScreen({Key? key, required this.onChoose}) : super(key: key);
   final void Function(String answer) onChoose;
+
   @override
   State<QuestionsScreen> createState() => _QuestionsScreenState();
 }
@@ -17,7 +18,9 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
   void changeQuestion(String answer) {
     widget.onChoose(answer);
     setState(() {
-      currentIndex++;
+      if (currentIndex < questions.length - 1) {
+        currentIndex++;
+      }
     });
   }
 
@@ -55,11 +58,12 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
               questions[currentIndex].question,
               textAlign: TextAlign.center,
               style: GoogleFonts.lato(
-                  color: Colors.white,
-                  height: 1.5,
-                  fontSize: 20,
-                  letterSpacing: 2,
-                  fontWeight: FontWeight.w500),
+                color: Colors.white,
+                height: 1.5,
+                fontSize: 20,
+                letterSpacing: 2,
+                fontWeight: FontWeight.w500,
+              ),
             ),
           ),
           const SizedBox(

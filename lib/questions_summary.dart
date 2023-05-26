@@ -32,7 +32,7 @@ class QuestionsSummary extends StatelessWidget {
                   color: Colors.white,
                 ),
                 width: rowWidth,
-                height: containerHeight * 0.3,
+                height: containerHeight * 0.7,
                 padding: EdgeInsets.all(rowWidth * 0.02),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -58,16 +58,37 @@ class QuestionsSummary extends StatelessWidget {
                         padding: EdgeInsets.symmetric(
                           horizontal: rowWidth * 0.06,
                         ),
+                        height: containerHeight * 0.6,
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            Text(data['current_question'] as String),
-                            const SizedBox(
-                              height: 5,
+                            Text(
+                              data['current_question'] as String,
+                              style: const TextStyle(
+                                fontSize: 25,
+                              ),
                             ),
-                            Text(data['user_answer'] as String),
-                            Text(data['current_answer'] as String),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.symmetric(
+                                vertical: 10,
+                              ),
+                              child: Text(
+                                data['user_answer'] as String,
+                                style: const TextStyle(
+                                  fontSize: 25,
+                                ),
+                              ),
+                            ),
+                            Text(
+                              data['current_answer'] as String,
+                              style: const TextStyle(
+                                fontSize: 25,
+                              ),
+                            ),
                           ],
                         ),
                       ),
